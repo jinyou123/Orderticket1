@@ -1,10 +1,10 @@
-package dao;
+package bill;
 
 import bean.Flight;
 
 import java.util.Set;
 
-public interface IFlightDao {
+public interface IFlightService {
     void insertFlight(Flight flight);
     Set<Flight> getAllFlight();
     Flight getFlightByccf(String cff);

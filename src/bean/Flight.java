@@ -3,12 +3,34 @@ package bean;
 import javax.swing.text.Style;
 
 public class Flight {
+    private  String id;
+    private String planeType; //飞机类型
+    private int currentSeatsNum; //飞机座位数
     private String cfd;//出发地
     private String mdd;//目的地
     private String cfsj;//出发时间
-    private String planeType; //飞机类型
-    private  String  setNo;
-    private String setNum;
+
+
+
+    public Flight(String id, String cfd, String mdd, String cfsj, String planeType, int currentSeatsNum, String setNum) {
+        this.id = id;
+        this.cfd = cfd;
+        this.mdd = mdd;
+        this.cfsj = cfsj;
+        this.planeType = planeType;
+        this.currentSeatsNum = currentSeatsNum;
+    }
+
+    public Flight(String id, String cdf, String mmd, String cfsj, String planeType, String currentSeatsNum) {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getCfd() {
         return cfd;
@@ -42,19 +64,12 @@ public class Flight {
         this.planeType = planeType;
     }
 
-    public String getSetNo() {
-        return setNo;
+    public int getCurrentSeatsNum() {
+        return currentSeatsNum;
     }
 
-    public void setSetNo(String setNo) {
-        this.setNo = setNo;
+    public void setCurrentSeatsNum(int currentSeatsNum) {
+        this.currentSeatsNum = currentSeatsNum;
     }
 
-    public String getSetNum() {
-        return setNum;
-    }
-
-    public void setSetNum(String setNum) {
-        this.setNum = setNum;
-    }
 }
