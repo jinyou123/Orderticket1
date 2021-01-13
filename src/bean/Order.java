@@ -2,7 +2,7 @@ package bean;
 
 import bean.passage;
 
-public class Oder {
+public class Order {
     private String id;
     private float jpjg;//机票价格
     private float airPortTax;//机场税

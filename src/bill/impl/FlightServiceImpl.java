@@ -9,7 +9,8 @@ public class FlightServiceImpl implements IFlightService {
 
     @Override
     public void insertFlight(Flight flight) {
-        System.out.println("界面传来的航班信息："+flight);
+
+        //System.out.println("界面传来的航班信息："+flight);
     }
 
     @Override
@@ -18,17 +19,17 @@ public class FlightServiceImpl implements IFlightService {
     }
 
     @Override
-    public Flight getFlightByccf(String cff) {
+    public Flight getFlightByccf(String departureAirPort) {
         return null;
     }
 
     @Override
-    public Flight getFlightBymmd(String mdd) {
+    public Flight getFlightBymmd(String destinationAirPort) {
         return null;
     }
 
     @Override
-    public Flight getFlightBycfsj(String cfsj) {
+    public Flight getFlightBycfsj(String getDepartureTime) {
         return null;
     }
 

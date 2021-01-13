@@ -1,7 +1,10 @@
 package ui;
 
 import bean.Flight;
+import bill.IFlightService;
+import bill.impl.FlightServiceImpl;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -19,22 +22,36 @@ public class MainUI {
             int choice = sc.nextInt();
             if (choice==1){
                 String id= UUID.randomUUID().toString();
-                System.out.println("航班id");
-
-                System.out.print("请输入航班编号");
+                System.out.println(id.replace("-",""));
+                System.out.print("请输入航班编号:");
                 String flightID=sc.next();
-                System.out.print("请输入机型");
-                String planeType =sc.next();
-                System.out.print("请输入飞机座位数");
-                String currentSeatsNum =sc.next();
-                System.out.print("请输入起飞地点");
-                String cdf =sc.next();
-                System.out.print("请输入目的地");
-                String mmd =sc.next();
-                System.out.print("请输入出发时间");
-                String cfsj =sc.next();
 
-                Flight flight=new Flight(id,cdf,mmd,cfsj,planeType,currentSeatsNum);
+                System.out.print("请输入机型:");
+                String planeType =sc.next();
+
+                System.out.print("请输入飞机座位数:");
+                int currentSeatsNum =sc.nextInt();
+                System.out.print("请输入起飞地点:");
+                String departureAirPort =sc.next();
+                System.out.print("请输入目的地:");
+                String destinationAirPort =sc.next();
+                System.out.print("请输入出发时间:");
+                String getDepartureTime =sc.next();
+
+                Flight flight = new Flight(id,flightID,planeType,currentSeatsNum,departureAirPort,destinationAirPort,getDepartureTime);
+                IFlightService iFlightService = new FlightServiceImpl();
+                try {
+                    iFlightService.insertFlight(flight);
+                } catch (SQLException e){
+                    String errorMessage=e.getMessage();
+                    System.out.println(errorMessage);
+                    String errorId = errorMessage.substring(0,9);
+                    System.out.println("错误编码："+errorId);
+                    if ("ORA-12899".equals(errorId)){
+                        System.out.println("某列的值过大，请仔细检查");
+                    }
+
+                }
 
             }
         }

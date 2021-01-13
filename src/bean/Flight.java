@@ -1,29 +1,23 @@
 package bean;
 
-import javax.swing.text.Style;
-
 public class Flight {
-    private  String id;
+    private String id;//主键
+    private String flightId;
     private String planeType; //飞机类型
     private int currentSeatsNum; //飞机座位数
-    private String cfd;//出发地
-    private String mdd;//目的地
-    private String cfsj;//出发时间
+    private String departureAirPort;//出发地
+    private String destinationAirPort;//目的地
+    private String getDepartureTime;//出发时间
 
-
-
-    public Flight(String id, String cfd, String mdd, String cfsj, String planeType, int currentSeatsNum, String setNum) {
+    public Flight(String id, String flightId, String planeType, int currentSeatsNum, String departureAirPort, String destinationAirPort, String getDepartureTime) {
         this.id = id;
-        this.cfd = cfd;
-        this.mdd = mdd;
-        this.cfsj = cfsj;
+        this.flightId=flightId;
         this.planeType = planeType;
         this.currentSeatsNum = currentSeatsNum;
+        this.departureAirPort = departureAirPort;
+        this.destinationAirPort = destinationAirPort;
+        this.getDepartureTime = getDepartureTime;
     }
-
-    public Flight(String id, String cdf, String mmd, String cfsj, String planeType, String currentSeatsNum) {
-    }
-
     public String getId() {
         return id;
     }
@@ -32,28 +26,12 @@ public class Flight {
         this.id = id;
     }
 
-    public String getCfd() {
-        return cfd;
+    public String getFlightId() {
+        return flightId;
     }
 
-    public void setCfd(String cfd) {
-        this.cfd = cfd;
-    }
-
-    public String getMdd() {
-        return mdd;
-    }
-
-    public void setMdd(String mdd) {
-        this.mdd = mdd;
-    }
-
-    public String getCfsj() {
-        return cfsj;
-    }
-
-    public void setCfsj(String cfsj) {
-        this.cfsj = cfsj;
+    public void setFlightId(String flightId) {
+        this.flightId = flightId;
     }
 
     public String getPlaneType() {
@@ -72,4 +50,27 @@ public class Flight {
         this.currentSeatsNum = currentSeatsNum;
     }
 
+    public String getDepartureAirPort() {
+        return departureAirPort;
+    }
+
+    public void setDepartureAirPort(String departureAirPort) {
+        this.departureAirPort = departureAirPort;
+    }
+
+    public String getDestinationAirPort() {
+        return destinationAirPort;
+    }
+
+    public void setDestinationAirPort(String destinationAirPort) {
+        this.destinationAirPort = destinationAirPort;
+    }
+
+    public String getGetDepartureTime() {
+        return getDepartureTime;
+    }
+
+    public void setGetDepartureTime(String getDepartureTime) {
+        this.getDepartureTime = getDepartureTime;
+    }
 }
