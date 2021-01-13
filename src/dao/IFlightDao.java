@@ -12,4 +12,6 @@ public interface IFlightDao {
     Flight getFlightBymmd(String destinationAirPort);
     Flight getFlightBycfsj(String getDepartureTime);
     void updateFlight(Flight flight);
+
+    Set<Flight> getAllFlights();
 }

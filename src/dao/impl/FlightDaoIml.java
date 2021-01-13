@@ -12,7 +12,7 @@ import java.util.Set;
 public  class FlightDaoIml implements IFlightDao {
     @Override
     public void insertFlight(Flight flight) throws SQLException {
-        String url="jdbc:oracle:this:@localhost:1521:orcle";
+        String url="jdbc:oracle:thin:@localhost:1521:orcl";
         String username="opts";
         String password="opts1234";
         Connection conn = DriverManager.getConnection(url,username,password);
@@ -53,6 +53,11 @@ public  class FlightDaoIml implements IFlightDao {
     @Override
     public void updateFlight(Flight flight) {
 
+    }
+
+    @Override
+    public Set<Flight> getAllFlights() {
+        return null;
     }
 }
 

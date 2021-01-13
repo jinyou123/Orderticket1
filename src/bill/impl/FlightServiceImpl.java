@@ -2,20 +2,32 @@ package bill.impl;
 
 import bean.Flight;
 import bill.IFlightService;
+import com.sun.xml.internal.bind.v2.model.core.ID;
+import dao.IFlightDao;
+import dao.impl.FlightDaoIml;
 
+import java.lang.ref.PhantomReference;
+import java.sql.*;
+import java.util.HashSet;
 import java.util.Set;
 
 public class FlightServiceImpl implements IFlightService {
 
-    @Override
-    public void insertFlight(Flight flight) {
+    IFlightDao iFlightDao;
 
-        //System.out.println("界面传来的航班信息："+flight);
+    public FlightServiceImpl() {
+    iFlightDao=new FlightDaoIml();
     }
 
     @Override
-    public Set<Flight> getAllFlight() {
-        return null;
+    public void insertFlight(Flight flight) throws SQLException {
+        //System.out.println("界面传来的航班信息："+flight);
+        iFlightDao.insertFlight(flight);
+    }
+
+    @Override
+    public Set<Flight> getAllFlight() throws SQLException {
+        return iFlightDao.getAllFlights();
     }
 
     @Override
