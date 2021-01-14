@@ -16,7 +16,7 @@ public class FlightServiceImpl implements IFlightService {
     IFlightDao iFlightDao;
 
     public FlightServiceImpl() {
-    iFlightDao=new FlightDaoIml();
+    iFlightDao = new FlightDaoIml();
     }
 
     @Override
@@ -31,18 +31,18 @@ public class FlightServiceImpl implements IFlightService {
     }
 
     @Override
-    public Flight getFlightByccf(String departureAirPort) {
-        return null;
+    public Flight getFlightdepartureAirPort(String departureAirPort) throws SQLException {
+        return iFlightDao.getFlightdepartureAirPort(departureAirPort);
     }
 
     @Override
-    public Flight getFlightBymmd(String destinationAirPort) {
-        return null;
+    public Flight getFlightBydestinationAirPort(String destinationAirPort) throws SQLException {
+        return iFlightDao.getFlightBydestinationAirPort(destinationAirPort);
     }
 
     @Override
-    public Flight getFlightBycfsj(String getDepartureTime) {
-        return null;
+    public Flight getFlightByDepartureTime(String DepartureTime) throws SQLException {
+        return iFlightDao.getFlightByDepartureTime(DepartureTime);
     }
 
     @Override
@@ -50,3 +50,4 @@ public class FlightServiceImpl implements IFlightService {
 
     }
 }
+
