@@ -4,6 +4,7 @@ import bean.Flight;
 import bill.IFlightService;
 import bill.impl.FlightServiceImpl;
 import com.sun.xml.internal.ws.server.sei.SEIInvokerTube;
+import sun.security.timestamp.TSRequest;
 
 import java.sql.SQLException;
 import java.util.Scanner;
@@ -97,11 +98,23 @@ public class MainUI {
                                 System.out.println("查询结果：" + flight);
                             } else {
                                 System.out.println("没有查询到该时间的航班");
+
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();
                         }
-            }
+                    }else  if(choose==2){
+                        System.out.println("请输入空座信息查询");
+
+                    }else  if(choose==3){
+                        System.out.println("请输入起飞地查询");
+                        String departureAirPort = sc.next();
+                        IFlightService iFlightService = new FlightServiceImpl();
+                        Flight flight = iFlightService.getFlightdepartureAirPort(departureAirPort);
+
+                    }else if(choose==3){
+                        System.out.println("请输入目的地查询");
+                    }
             }
         }
     }
